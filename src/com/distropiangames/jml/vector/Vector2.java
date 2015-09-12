@@ -188,6 +188,88 @@ public class Vector2
 
     }
 
+    public static float cross(Vector2 value1, Vector2 value2)
+    {
+
+        return value1.getX() * value2.getY() - value1.getY() * value2.getX();
+
+    }
+
+    public static float dot(Vector2 value1, Vector2 value2)
+    {
+
+        return value1.getX() * value2.getX() + value1.getY() * value2.getY();
+
+    }
+
+    public static Vector2 lerp(Vector2 value, Vector2 destination, float factor)
+    {
+
+        return Vector2.add(Vector2.multiply(Vector2.subtract(destination, value), factor), value);
+
+    }
+
+    public static Vector2 rotate(Vector2 value, float angle)
+    {
+
+        double radians = Math.toRadians(angle);
+
+        double cos = Math.cos(radians);
+        double sin = Math.sin(radians);
+
+        return new Vector2((float) (value.getX() * cos - value.getY() * sin), (float) (value.getX() * sin + value.getY() * cos));
+
+    }
+
+    public static Vector2 perpendicular(Vector2 value)
+    {
+
+        return new Vector2(value.getY(), value.getX() * -1.0f);
+
+    }
+
+    public static float angle(Vector2 value1, Vector2 value2)
+    {
+
+        return (float) Math.atan2(Vector2.cross(value1, value2), Vector2.dot(value1, value2));
+
+    }
+
+    public static float min(Vector2 value)
+    {
+
+        return Math.min(value.getX(), value.getY());
+
+    }
+
+    public static float max(Vector2 value)
+    {
+
+        return Math.max(value.getX(), value.getY());
+
+    }
+
+    public static Vector2 min(Vector2 value1, Vector2 value2)
+    {
+
+        return value1.length() < value2.length() ? value1 : value2;
+
+    }
+
+    public static Vector2 max(Vector2 value1, Vector2 value2)
+    {
+
+        return value1.length() > value2.length() ? value1 : value2;
+
+    }
+
+    public static Vector2 abs(Vector2 value)
+    {
+
+        return new Vector2(Math.abs(value.getX()), Math.abs(value.getY()));
+
+    }
+
     public static boolean equals(Vector2 value1, Vector2 value2)
     {
 

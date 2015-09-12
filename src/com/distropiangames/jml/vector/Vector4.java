@@ -202,6 +202,48 @@ public class Vector4
 
     }
 
+    public static float dot(Vector4 value1, Vector4 value2)
+    {
+
+        return value1.getX() * value2.getX() + value1.getY() * value2.getY() + value1.getZ() * value2.getZ() + value1.getW() * value2.getW();
+
+    }
+
+    public static float min(Vector4 value)
+    {
+
+        return Math.min(Math.min(value.getX(), value.getW()), Math.min(value.getY(), value.getZ()));
+
+    }
+
+    public static float max(Vector4 value)
+    {
+
+        return Math.max(Math.max(value.getX(), value.getW()), Math.max(value.getY(), value.getZ()));
+
+    }
+
+    public static Vector4 min(Vector4 value1, Vector4 value2)
+    {
+
+        return value1.length() < value2.length() ? value1 : value2;
+
+    }
+
+    public static Vector4 max(Vector4 value1, Vector4 value2)
+    {
+
+        return value1.length() > value2.length() ? value1 : value2;
+
+    }
+
+    public static Vector4 abs(Vector4 value)
+    {
+
+        return new Vector4(Math.abs(value.getX()), Math.abs(value.getY()), Math.abs(value.getZ()), Math.abs(value.getW()));
+
+    }
+
     public static boolean equals(Vector4 value1, Vector4 value2)
     {
 

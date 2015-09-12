@@ -1,5 +1,7 @@
 package com.distropiangames.jml.vector;
 
+import com.distropiangames.jml.quaternion.Quaternion;
+
 public class Vector3
 {
 
@@ -192,6 +194,71 @@ public class Vector3
         vector1.divide(vector2);
 
         return vector1;
+
+    }
+
+    public static Vector3 cross(Vector3 value1, Vector3 value2)
+    {
+
+        return new Vector3(value1.getY() * value2.getZ() - value1.getZ() * value2.getY(), value1.getZ() * value2.getX() - value1.getX() * value2.getZ(), value1.getX() * value2.getY() - value1.getY() * value2.getX());
+
+    }
+
+    public static float dot(Vector3 value1, Vector3 value2)
+    {
+
+        return value1.getX() * value2.getX() + value1.getY() * value2.getY() + value1.getZ() * value2.getZ();
+
+    }
+
+    public static Vector3 lerp(Vector3 value, Vector3 destination, float factor)
+    {
+
+        return Vector3.add(Vector3.multiply(Vector3.subtract(destination, value), factor), value);
+
+    }
+
+    public static Vector3 rotate(Vector3 value, Quaternion rotation)
+    {
+
+        //To Be Made
+
+        return null;
+
+    }
+
+    public static float min(Vector3 value)
+    {
+
+        return Math.min(value.getX(), Math.min(value.getY(), value.getZ()));
+
+    }
+
+    public static float max(Vector3 value)
+    {
+
+        return Math.max(value.getX(), Math.max(value.getY(), value.getZ()));
+
+    }
+
+    public static Vector3 min(Vector3 value1, Vector3 value2)
+    {
+
+        return value1.length() < value2.length() ? value1 : value2;
+
+    }
+
+    public static Vector3 max(Vector3 value1, Vector3 value2)
+    {
+
+        return value1.length() > value2.length() ? value1 : value2;
+
+    }
+
+    public static Vector3 abs(Vector3 value)
+    {
+
+        return new Vector3(Math.abs(value.getX()), Math.abs(value.getY()), Math.abs(value.getZ()));
 
     }
 
