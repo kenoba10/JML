@@ -218,12 +218,17 @@ public class Vector3
 
     }
 
+    public static Vector3 rotate(Vector3 value, Vector3 axis, float angle)
+    {
+
+        return Vector3.rotate(value, new Quaternion(axis, angle));
+
+    }
+
     public static Vector3 rotate(Vector3 value, Quaternion rotation)
     {
 
-        //To Be Made
-
-        return null;
+        return Quaternion.multiply(Quaternion.multiply(rotation, value), Quaternion.conjugate(rotation)).getVector4().getXYZ();
 
     }
 

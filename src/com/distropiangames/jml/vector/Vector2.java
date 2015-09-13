@@ -1,5 +1,7 @@
 package com.distropiangames.jml.vector;
 
+import com.distropiangames.jml.quaternion.Quaternion;
+
 public class Vector2
 {
 
@@ -212,12 +214,14 @@ public class Vector2
     public static Vector2 rotate(Vector2 value, float angle)
     {
 
-        double radians = Math.toRadians(angle);
+        return Vector2.rotate(value, new Quaternion(new Vector3(0.0f, 0.0f, 1.0f), angle));
 
-        double cos = Math.cos(radians);
-        double sin = Math.sin(radians);
+    }
 
-        return new Vector2((float) (value.getX() * cos - value.getY() * sin), (float) (value.getX() * sin + value.getY() * cos));
+    public static Vector2 rotate(Vector2 value, Quaternion rotation)
+    {
+
+        return Quaternion.multiply(Quaternion.multiply(rotation, new Vector3(value.getX(), value.getY(), 0.0f)), Quaternion.conjugate(rotation)).getVector4().getXYZ().getXY();
 
     }
 
