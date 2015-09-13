@@ -37,6 +37,27 @@ public class Matrix3
 
     }
 
+    public static Matrix3 identity()
+    {
+
+        Matrix3 result = new Matrix3();
+
+        result.set(0, 0, 1.0f);
+        result.set(0, 1, 0.0f);
+        result.set(0, 2, 0.0f);
+
+        result.set(1, 0, 0.0f);
+        result.set(1, 1, 1.0f);
+        result.set(1, 2, 0.0f);
+
+        result.set(2, 0, 0.0f);
+        result.set(2, 1, 0.0f);
+        result.set(2, 2, 1.0f);
+
+        return result;
+
+    }
+
     public FloatBuffer asFloatBuffer()
     {
 

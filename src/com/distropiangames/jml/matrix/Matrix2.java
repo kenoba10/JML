@@ -31,6 +31,21 @@ public class Matrix2
 
     }
 
+    public static Matrix2 identity()
+    {
+
+        Matrix2 result = new Matrix2();
+
+        result.set(0, 0, 1.0f);
+        result.set(0, 1, 0.0f);
+
+        result.set(1, 0, 0.0f);
+        result.set(1, 1, 1.0f);
+
+        return result;
+
+    }
+
     public FloatBuffer asFloatBuffer()
     {
 
